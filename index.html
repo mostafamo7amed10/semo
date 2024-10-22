@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سماسيموووووووووو </title>
+    <style>
+        body {
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* محاذاة العناصر في المنتصف */
+            justify-content: center; /* جعل المحتوى في المنتصف عموديًا */
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box; /* تضمين padding في حسابات العرض والارتفاع */
+        }
+        h1 {
+            color: darkblue;
+            font-size: 3vw; /* حجم خط متجاوب */
+            margin: 0; /* إزالة الهوامش الافتراضية */
+            text-align: right; /* محاذاة العنوان إلى اليمين */
+            width: 100%; /* جعل العنوان يأخذ عرض كامل الشاشة */
+        }
+        .button-container {
+            margin-top: 2rem; /* استخدام وحدات قياس مرنة */
+            display: flex;
+            flex-direction: column; /* وضع الأزرار عموديًا */
+            align-items: center; /* محاذاة الأزرار في المنتصف */
+            width: 100%; /* جعل الزر يأخذ عرض كامل الشاشة */
+        }
+        button {
+            margin: 0.5rem; /* استخدام وحدات قياس مرنة */
+            padding: 1rem 2rem; /* حجم مرن للزر */
+            font-size: 2vw; /* حجم خط متجاوب */
+            cursor: pointer;
+            width: 80%; /* عرض الزر */
+            max-width: 300px; /* تحديد عرض أقصى للزر */
+        }
+        #message {
+            margin-top: 2rem;
+            font-size: 2vw; /* حجم خط متجاوب */
+            color: darkblue;
+            text-align: center; /* محاذاة النص إلى الوسط */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>الطريق الي مصالحة سمكة</h1>
+    
+    <button onclick="changeBackgroundColor()"> اختاري اللون ال يريحك </button>
+    
+    <div class="button-container">
+        <button onclick="showMessage1()">دوسي هنا</button>
+        <button onclick="showMessage2()">دوسي هنا برضه</button>
+       
+        <button onclick="playSound('audio1')">دوسي يا قموصة 1</button>
+        <button onclick="playSound('audio2')">دوسي يا قموصة 2</button>
+        <button onclick="playSound('audio3')">دوسي يا قموصة 3</button>
+
+         <button onclick="showMessage3()">اخر دوسه</button>
+    </div>
+
+    <div id="message"></div>
+
+    <audio id="audio1" src="WhatsApp Audio 2024-10-22 at 02.24.16_3c232c8d.mp3"></audio> <!-- مسار المقطع الصوتي 1 -->
+    <audio id="audio2" src="WhatsApp Audio 2024-10-22 at 02.24.31_1e1341ad.mp3"></audio> <!-- مسار المقطع الصوتي 2 -->
+    <audio id="audio3" src="WhatsApp Audio 2024-10-22 at 02.24.46_11e25e2f.mp3"></audio> <!-- مسار المقطع الصوتي 3 -->
+
+    <script>
+        let currentAudio = null; // متغير لتخزين المقطع الصوتي الحالي
+
+        function showMessage1() {
+            document.getElementById('message').innerText = " متزعليش مني يا سماسيموووووووووو";
+        }
+        
+        function showMessage2() {
+            document.getElementById('message').innerText = " احسن دوسة من احسن دكتوره ";
+        }
+        
+        function showMessage3() {
+            document.getElementById('message').innerText = "خدي بوسه";
+        }
+
+        function changeBackgroundColor() {
+            const colors = ['pink', 'lightblue', 'lightgreen', 'lightyellow', 'lavender'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        function playSound(audioId) {
+            if (currentAudio) {
+                currentAudio.pause(); // إيقاف المقطع الصوتي الحالي
+                currentAudio.currentTime = 0; // إعادة تعيين الوقت إلى البداية
+            }
+
+            currentAudio = document.getElementById(audioId);
+            currentAudio.play(); // تشغيل الصوت
+        }
+    </script>
+
+</body>
+</html>         
